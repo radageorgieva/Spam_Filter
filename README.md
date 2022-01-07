@@ -13,58 +13,13 @@ This is part of a group assignment I completed during the Machine Learning modul
 - You're better off using virtual environment 
 - Find all required packages and their corresponding version in the file requirements.txt
 
-## Full Article 
+## Full Article
+The provided Jupyter Notebook contains extensive comments on the data processing, model fitting and optimization and anlysis of the observed results.
 
 ## Conclusions of the project
 
-The aim of this paper was to determine whether representation biases exists in machine
-learning for medicine, why they exists, and how they can be reduced. To do so, it
-leveraged current literature and an empirical study consisting of the prediction of acute
-liver failure with a focus on the potential differences in its performance for the two
-genders.
+Both the Bernoulli and the Multinomial models perform very well in terms of weighted accuracy. However, as we said in the beginning, we have an imbalanced dataset skewed towards "ham" text messages. Hence, it is important to look at sensitivity and specificity scores for the two classes. What we can conclude, is that while the two have similar weighted accuracy, MultinomialNB is better in predicting "ham" text messages, while Bernoulli is better at predicting "spam" messages. If the goal of the task is to filter out spam, we would probably be better off using the Bernoulli Naive Bayes. Overall, both models show very good results, generalization is not an issue and none of the scores showing performance of separate classes raise concerns unless we are looking for a classifier that has zero tolerance in spam.
 
-Literature suggests that representation bias is present in algorithms, as it is in
-the judgment of people. On one hand, this final paper confirms the existence of such
-disparities in machine learning for medicine through an exemplary case, in which there
-is a significant bias with an ambiguous source and a surprising direction. On the other
-hand, it also proves that the enhancement of such prejudice by machines is preventable,
-as the inequality in performance for different social groups can be mitigated with the
-help of technological tools.
+A random classifer that labels emails as spam, ham emails randomly based on the historical fraction of ham/spam emails already recieved (86.6% ham and 13.4% spam) will overall accuracy = 1- ((0.1340.866)+(0.8660.134)) = 0.77 (based on Gini index idea), and hence it's evident that both of our classifiers performs better than this random classifier.
 
-The solution offered is the one of giving a weight to each data point based on their
-demographic characteristic of interest and their dependent variable value. The weights
-should be given according to the fairness and optimization criterion, which, in the case
-of medicine, is sensitivity. It is important to note that, differently by common beliefs,
-it is not the most underrepresented group that should necessarily be given highest
-importance but rather the discriminated one. In the study, this group is the one of
-sick men. The weights given to data points according to their dependent variable value
-can be determined by the type of values optimized by the chosen score. In sensitivity
-this is the true positives; thus, patients with acute liver failure should be given more
-importance. This method manages to not only mitigate the bias but also improves the
-overall sensitivity.
-
-Unfortunately, these results are achieved at the cost of the reduction of other
-performance metrics such as accuracy. The chosen solution is the one that harms this
-score the least but also manages to mitigate the discrimination. The rest of the proposed
-solutions have sensitivity close to 100% but it does not mean that they perform well.
-For example, one can also get trivially to 100% sensitivity when classifying everything
-as positive but the resulting model would not be reliable. The final solution has an
-overall sensitivity of 91.1%, a 1.7% bias benefiting women and reduces accuracy by
-5.3%(much less than the other proposed solutions).
-
-Because of the limitations of this study it might be best if a hybrid approach is
-used in the deployment of this technology. According to it, there should be a balance
-between algorithm and human judgment. The ways to develop it depend on the different
-applications of the models. If embraced by a Private Clinique, the models could be
-used only to determine whether further examinations should be done to confirm the
-diagnosis rather than whether a treatment should be started. Moreover, physicians
-should be trained to work side-by-side with the algorithm to achieve optimal use of the
-technology.
-
-Instead, if the algorithm is deployed on an app, it might be best to be transparent
-with the users about the performance of the model. They should be aware that, while
-there is a low probability that they are told to be healthy, but are actually not, there
-still is a significant possibility that they are told to be sick, but are actually healthy.
-Hence, the algorithm shall be used as a mechanism to suggest visiting a doctor or
-scheduling further examinations.
-
+Based on all the above, one can say this is a good classifier.
