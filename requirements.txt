@@ -1,0 +1,13 @@
+dmba==0.0.19
+imblearn==0.0
+joblib==1.0.1
+matplotlib==3.3.4
+nltk==3.6.1
+numpy==1.20.1
+pandas==1.2.4
+protobuf==3.19.1
+scikit_learn==1.0.2
+scipy==1.6.2
+seaborn==0.11.1
+wordcloud==1.8.1
+xgboost==1.5.1
